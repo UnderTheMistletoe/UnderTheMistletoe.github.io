@@ -200,7 +200,7 @@
 
     <!-- Custom Head -->
     
-</head>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
 
 
     
@@ -395,31 +395,46 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <h1 id="Ceph简单配置"><a href="#Ceph简单配置" class="headerlink" title="Ceph简单配置"></a>Ceph简单配置</h1><h2 id="预检"><a href="#预检" class="headerlink" title="预检"></a>预检</h2><h3 id="安装Ceph-deploy"><a href="#安装Ceph-deploy" class="headerlink" title="安装Ceph-deploy"></a>安装Ceph-deploy</h3><ol>
-<li><p>选择某个节点，添加Release key</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ wget -q -O- <span class="string">'https://download.ceph.com/keys/release.asc'</span> | sudo apt-key add -</div></pre></td></tr></table></figure>
+<li>选择某个节点，添加Release key<pre class=" language-bash"><code class="language-bash">$ <span class="token function">wget</span> -q -O- <span class="token string">'https://download.ceph.com/keys/release.asc'</span> <span class="token operator">|</span> <span class="token function">sudo</span> apt-key add -
+</code></pre>
 </li>
-<li><p>将Ceph包添加到仓库中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ echo deb https://download.ceph.com/debian-&#123;ceph-stable-release&#125;/ $(lsb_release -sc) main | sudo tee /etc/apt/sources.list.d/ceph.list</div></pre></td></tr></table></figure>
+<li>将Ceph包添加到仓库中<pre><code>$ echo deb https://download.ceph.com/debian-{ceph-stable-release}/ $(lsb_release -sc) main | sudo tee /etc/apt/sources.list.d/ceph.list
+</code></pre></li>
+<li>使用国内源进行配置<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#以ubuntu为例</span>
+$ <span class="token function">export</span> CEPH_DEPLOY_REPO_URL<span class="token operator">=</span>http://mirrors.163.com/ceph/debian-jewel/
+$ <span class="token function">export</span> CEPH_DEPLOY_GPG_URL<span class="token operator">=</span>http://mirrors.163.com/ceph/keys/release.asc
+<span class="token comment" spellcheck="true"># http://mirrors.163.com/ceph</span>
+<span class="token comment" spellcheck="true"># http://mirrors.aliyun.com/ceph</span>
+<span class="token comment" spellcheck="true"># http://mirrors.ustc.edu.cn/ceph</span>
+<span class="token comment" spellcheck="true"># http://mirrors.plcloud.com/ceph</span>
+</code></pre>
 </li>
-<li><p>使用国内源进行配置</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#以ubuntu为例</span></div><div class="line">$ <span class="built_in">export</span> CEPH_DEPLOY_REPO_URL=http://mirrors.163.com/ceph/debian-jewel/</div><div class="line">$ <span class="built_in">export</span> CEPH_DEPLOY_GPG_URL=http://mirrors.163.com/ceph/keys/release.asc</div><div class="line"><span class="comment"># http://mirrors.163.com/ceph</span></div><div class="line"><span class="comment"># http://mirrors.aliyun.com/ceph</span></div><div class="line"><span class="comment"># http://mirrors.ustc.edu.cn/ceph</span></div><div class="line"><span class="comment"># http://mirrors.plcloud.com/ceph</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>安装ceph-deploy</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get update &amp;&amp; sudo apt-get install ceph-deploy</div></pre></td></tr></table></figure>
+<li>安装ceph-deploy<pre class=" language-bash"><code class="language-bash">$ <span class="token function">sudo</span> <span class="token function">apt-get</span> update <span class="token operator">&amp;&amp;</span> <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> ceph-deploy
+</code></pre>
 </li>
 </ol>
 <h3 id="ceph-node配置"><a href="#ceph-node配置" class="headerlink" title="ceph node配置"></a>ceph node配置</h3><ol>
-<li><p>在ceph的node节点中，安装ntp服务，并保证整个集群的时间同步并添加ssh-server</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install ntp</div><div class="line">$ sudo apt-get install openssh-server</div></pre></td></tr></table></figure>
+<li>在ceph的node节点中，安装ntp服务，并保证整个集群的时间同步并添加ssh-server<pre class=" language-bash"><code class="language-bash">$ <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> ntp
+$ <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> openssh-server
+</code></pre>
 </li>
-<li><p>在ceph的node节点中,添加ceph的用户与组ceph-user,然后进行配置，保证该用户可以无密码sudo访问，并修改该用户的密码</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ sudo useradd <span class="_">-d</span> /home/&#123;username&#125; -m &#123;username&#125;</div><div class="line">$ sudo passwd &#123;username&#125;</div><div class="line"><span class="comment"># 进行无密码sudo设置</span></div><div class="line">$ <span class="built_in">echo</span> <span class="string">"&#123;username&#125; ALL = (root) NOPASSWD:ALL"</span> | sudo tee /etc/sudoers.d/&#123;username&#125;</div><div class="line">$ sudo chmod 0440 /etc/sudoers.d/&#123;username&#125;</div></pre></td></tr></table></figure>
+<li>在ceph的node节点中,添加ceph的用户与组ceph-user,然后进行配置，保证该用户可以无密码sudo访问，并修改该用户的密码<pre class=" language-bash"><code class="language-bash">$ <span class="token function">sudo</span> <span class="token function">useradd</span> -d /home/<span class="token punctuation">{</span>username<span class="token punctuation">}</span> -m <span class="token punctuation">{</span>username<span class="token punctuation">}</span>
+$ <span class="token function">sudo</span> <span class="token function">passwd</span> <span class="token punctuation">{</span>username<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true"># 进行无密码sudo设置</span>
+$ <span class="token keyword">echo</span> <span class="token string">"{username} ALL = (root) NOPASSWD:ALL"</span> <span class="token operator">|</span> <span class="token function">sudo</span> <span class="token function">tee</span> /etc/sudoers.d/<span class="token punctuation">{</span>username<span class="token punctuation">}</span>
+$ <span class="token function">sudo</span> <span class="token function">chmod</span> 0440 /etc/sudoers.d/<span class="token punctuation">{</span>username<span class="token punctuation">}</span>
+</code></pre>
 </li>
-<li><p>配置无密码的ssh登陆，先在admin节点生成公钥，然后copy到其他node节点。不要使用sudo或者root用户，而且不要使用密码</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen</div><div class="line">$ ssh-copy-id &#123;username&#125;@node1</div></pre></td></tr></table></figure>
+<li>配置无密码的ssh登陆，先在admin节点生成公钥，然后copy到其他node节点。不要使用sudo或者root用户，而且不要使用密码<pre class=" language-bash"><code class="language-bash">$ ssh-keygen
+$ ssh-copy-id <span class="token punctuation">{</span>username<span class="token punctuation">}</span>@node1
+</code></pre>
 </li>
-<li><p>为了方便使用ceph-deploy，推荐使用如下的ssh配置。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ sudo gedit ~/.ssh/config</div><div class="line"><span class="comment"># 然后添加</span></div><div class="line"><span class="comment"># Host node1</span></div><div class="line"><span class="comment">#    Hostname node1</span></div><div class="line"><span class="comment">#    User &#123;username&#125;</span></div></pre></td></tr></table></figure>
+<li>为了方便使用ceph-deploy，推荐使用如下的ssh配置。<pre class=" language-bash"><code class="language-bash">$ <span class="token function">sudo</span> gedit ~/.ssh/config
+<span class="token comment" spellcheck="true"># 然后添加</span>
+<span class="token comment" spellcheck="true"># Host node1</span>
+<span class="token comment" spellcheck="true">#    Hostname node1</span>
+<span class="token comment" spellcheck="true">#    User {username}</span>
+</code></pre>
 </li>
 </ol>
 <h2 id="存储集群快速入门"><a href="#存储集群快速入门" class="headerlink" title="存储集群快速入门"></a>存储集群快速入门</h2><p>注意在部署存储集群时，要让集群到达clean+active状态。我们首先创建一个目录my-cluster，然后使用该目录存放配置文件和密钥</p>
@@ -427,41 +442,42 @@
 <p>不要使用sudo或者root用户执行ceph-deploy命令。cph-deploy会将文件输出到当前目录下，所以执行之前确保在上面提到的目录中</p>
 </blockquote>
 <h3 id="创建集群"><a href="#创建集群" class="headerlink" title="创建集群"></a>创建集群</h3><ol>
-<li><p>如果想在任何时候清除ceph配置，执行以下的命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ ceph-deploy purgedata &#123;ceph-node&#125; [&#123;ceph-node&#125;]</div><div class="line">$ ceph-deploy forgetkeys</div></pre></td></tr></table></figure>
+<li>如果想在任何时候清除ceph配置，执行以下的命令<pre class=" language-bash"><code class="language-bash">$ ceph-deploy purgedata <span class="token punctuation">{</span>ceph-node<span class="token punctuation">}</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>ceph-node<span class="token punctuation">}</span><span class="token punctuation">]</span>
+$ ceph-deploy forgetkeys
+</code></pre>
 </li>
-<li><p>在admin节点中，执行下列命令创建一个admin节点，此时在当前目录下会出现ceph配置文件和admin的密钥环</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ceph-deploy new &#123;initial-monitor-node(s)&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
+<li>在admin节点中，执行下列命令创建一个admin节点，此时在当前目录下会出现ceph配置文件和admin的密钥环<pre class=" language-bash"><code class="language-bash">$ ceph-deploy new <span class="token punctuation">{</span>initial-monitor-node<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">}</span>
+</code></pre>
 <blockquote>
 <p>此时，如果有多块网卡，请在[global]节中添加public_network与cluster_network用来保证使用高性能网卡传输osd数据</p>
-<ol>
-<li>在当前目录执行下列命令在其他的节点中安装ceph<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ceph-deploy install &#123;ceph-node&#125;[&#123;ceph-node&#125; ...]</div></pre></td></tr></table></figure>
-</li>
-</ol>
 </blockquote>
-<ol>
-<li><p>初始化admin节点并收集密钥环</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ceph-deploy mon create-initial</div></pre></td></tr></table></figure>
 </li>
-<li><p>在运行OSD的节点上创建osd的目录并准备激活</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ ceph-deploy osd prepare &#123;ceph-node&#125;:/path/to/directory</div><div class="line">$ ceph-deploy osd activate &#123;ceph-node&#125;:/path/to/directory</div></pre></td></tr></table></figure>
+<li>在当前目录执行下列命令在其他的节点中安装ceph<pre class=" language-bash"><code class="language-bash">$ ceph-deploy <span class="token function">install</span> <span class="token punctuation">{</span>ceph-node<span class="token punctuation">}</span><span class="token punctuation">[</span><span class="token punctuation">{</span>ceph-node<span class="token punctuation">}</span> <span class="token punctuation">..</span>.<span class="token punctuation">]</span>
+</code></pre>
 </li>
-</ol>
+<li>初始化admin节点并收集密钥环<pre class=" language-bash"><code class="language-bash">$ ceph-deploy mon create-initial
+</code></pre>
+</li>
+<li>在运行OSD的节点上创建osd的目录并准备激活<pre class=" language-bash"><code class="language-bash">$ ceph-deploy osd prepare <span class="token punctuation">{</span>ceph-node<span class="token punctuation">}</span>:/path/to/directory
+$ ceph-deploy osd activate <span class="token punctuation">{</span>ceph-node<span class="token punctuation">}</span>:/path/to/directory
+</code></pre>
 <blockquote>
 <p>osd的目录不能重复挂载，所以在磁盘中需要使用类似于/dev/sda /dev/sdb的块设备文件进行指定，这样会少很多权限错误</p>
-<ol>
-<li>将admin的密钥环和配置文件copy到所有节点，保证使用时，无需在指定monitor的地址<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ceph-deploy admin &#123;admin-node&#125; &#123;ceph-node&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
 </blockquote>
-<ol>
-<li><p>保证对ceph.client.admin.keyring有正确的权限</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo chmod +r /etc/ceph/ceph.client.admin.keyring</div></pre></td></tr></table></figure>
 </li>
-<li><p>对于某些使用Upstart出错的机器，使用systemctl来对ceph集群进行操作</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ sudo systemctl start ceph-osd@*   </div><div class="line">$ sudo systemctl stop  ceph-osd@*</div><div class="line">$ sudo systemctl restart ceph-osd@*</div><div class="line">$ sudo systemctl status  ceph-osd@*</div><div class="line"><span class="comment">#用osd的id代替*即可</span></div></pre></td></tr></table></figure></li>
+<li>将admin的密钥环和配置文件copy到所有节点，保证使用时，无需在指定monitor的地址<pre class=" language-bash"><code class="language-bash">$ ceph-deploy admin <span class="token punctuation">{</span>admin-node<span class="token punctuation">}</span> <span class="token punctuation">{</span>ceph-node<span class="token punctuation">}</span>
+</code></pre>
+</li>
+<li>保证对ceph.client.admin.keyring有正确的权限<pre class=" language-bash"><code class="language-bash">$ <span class="token function">sudo</span> <span class="token function">chmod</span> +r /etc/ceph/ceph.client.admin.keyring
+</code></pre>
+</li>
+<li>对于某些使用Upstart出错的机器，使用systemctl来对ceph集群进行操作<pre class=" language-bash"><code class="language-bash">$ <span class="token function">sudo</span> systemctl start ceph-osd@*   
+$ <span class="token function">sudo</span> systemctl stop  ceph-osd@*
+$ <span class="token function">sudo</span> systemctl restart ceph-osd@*
+$ <span class="token function">sudo</span> systemctl status  ceph-osd@*
+<span class="token comment" spellcheck="true">#用osd的id代替*即可</span>
+</code></pre>
+</li>
 </ol>
 
     

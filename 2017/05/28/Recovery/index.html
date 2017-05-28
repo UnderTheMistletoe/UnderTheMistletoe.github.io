@@ -200,7 +200,7 @@
 
     <!-- Custom Head -->
     
-</head>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
 
 
     
@@ -395,20 +395,19 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <h1 id="断电恢复时可能需要检查的服务"><a href="#断电恢复时可能需要检查的服务" class="headerlink" title="断电恢复时可能需要检查的服务"></a>断电恢复时可能需要检查的服务</h1><ol>
-<li><p>启动每个OSD</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ceph-deploy osd activate blade11:/dev/sda4 blade11:/dev/sdb2 blade12:/dev/sda3 blade12:/dev/sdb3 blade15:/dev/sda3 blade15:/dev/sdb3 blade16:/dev/sda3 blade16:/dev/sdb3</div></pre></td></tr></table></figure>
+<li>启动每个OSD<pre class=" language-bash"><code class="language-bash">$ ceph-deploy osd activate blade11:/dev/sda4 blade11:/dev/sdb2 blade12:/dev/sda3 blade12:/dev/sdb3 blade15:/dev/sda3 blade15:/dev/sdb3 blade16:/dev/sda3 blade16:/dev/sdb3
+</code></pre>
 </li>
-<li><p>启动InfiniBand所需的服务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo service opensm start</div></pre></td></tr></table></figure>
+<li>启动InfiniBand所需的服务<pre class=" language-bash"><code class="language-bash">$ <span class="token function">sudo</span> <span class="token function">service</span> opensm start
+</code></pre>
 </li>
-<li><p>启动mysql</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo service mysql start</div></pre></td></tr></table></figure>
+<li>启动mysql<pre class=" language-bash"><code class="language-bash">$ <span class="token function">sudo</span> <span class="token function">service</span> mysql start
+</code></pre>
 </li>
-<li><p>启动cache</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo service memcached start</div></pre></td></tr></table></figure>
+<li>启动cache<pre class=" language-bash"><code class="language-bash">$ <span class="token function">sudo</span> <span class="token function">service</span> memcached start
+</code></pre>
 </li>
-<li><p>检查Nova，Cinder，Neutron各个组件的状态</p>
-</li>
+<li>检查Nova，Cinder，Neutron各个组件的状态</li>
 </ol>
 
     
