@@ -10,7 +10,7 @@
     
     <title>
         
-            Hello World | 
+            ceph-config | 
         
         Notes for something
     </title>
@@ -32,7 +32,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="ZhangTong">
     <meta name="description" content="null">
-    <meta name="keywords" content="null">
+    <meta name="keywords" content="null,Ceph">
 
     <!-- Favicons -->
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
@@ -58,9 +58,9 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Hello World | Notes for something">
+    <meta property="og:title" content="ceph-config | Notes for something">
     <meta property="og:description" content="null">
-    
+    <meta property="og:article:tag" content="Ceph"> 
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -247,7 +247,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Quick-Start"><span class="post-toc-number">1.</span> <span class="post-toc-text">Quick Start</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Create-a-new-post"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Create a new post</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Run-server"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Run server</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Generate-static-files"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">Generate static files</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Deploy-to-remote-sites"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Ceph简单配置"><span class="post-toc-number">1.</span> <span class="post-toc-text">Ceph简单配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#预检"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">预检</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装Ceph-deploy"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">安装Ceph-deploy</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ceph-node配置"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">ceph node配置</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#存储集群快速入门"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">存储集群快速入门</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建集群"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">创建集群</span></a></li></ol></li></ol></li></ol>
 
         <!--
         <li class="mdl-menu__item">
@@ -284,7 +284,7 @@
         
     
             <p class="article-headline-p">
-                Hello World
+                ceph-config
             </p>
         </div>
 
@@ -327,7 +327,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        
+        <a class="post_tag-link" href="/tags/Ceph/">Ceph</a>
     </ul>
     
 
@@ -343,7 +343,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Hello World&url=http://yoursite.com//2017/05/28/hello-world/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=ceph-config&url=http://yoursite.com//2017/05/28/ceph-config/index.html&pic=&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -352,7 +352,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Hello World&url=http://yoursite.com//2017/05/28/hello-world/index.html&via=ZhangTong" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=ceph-config&url=http://yoursite.com//2017/05/28/ceph-config/index.html&via=ZhangTong" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -361,7 +361,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com//2017/05/28/hello-world/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com//2017/05/28/ceph-config/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -370,7 +370,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com//2017/05/28/hello-world/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com//2017/05/28/ceph-config/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -394,15 +394,75 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h1 id="Ceph简单配置"><a href="#Ceph简单配置" class="headerlink" title="Ceph简单配置"></a>Ceph简单配置</h1><h2 id="预检"><a href="#预检" class="headerlink" title="预检"></a>预检</h2><h3 id="安装Ceph-deploy"><a href="#安装Ceph-deploy" class="headerlink" title="安装Ceph-deploy"></a>安装Ceph-deploy</h3><ol>
+<li><p>选择某个节点，添加Release key</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ wget -q -O- <span class="string">'https://download.ceph.com/keys/release.asc'</span> | sudo apt-key add -</div></pre></td></tr></table></figure>
+</li>
+<li><p>将Ceph包添加到仓库中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ echo deb https://download.ceph.com/debian-&#123;ceph-stable-release&#125;/ $(lsb_release -sc) main | sudo tee /etc/apt/sources.list.d/ceph.list</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用国内源进行配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#以ubuntu为例</span></div><div class="line">$ <span class="built_in">export</span> CEPH_DEPLOY_REPO_URL=http://mirrors.163.com/ceph/debian-jewel/</div><div class="line">$ <span class="built_in">export</span> CEPH_DEPLOY_GPG_URL=http://mirrors.163.com/ceph/keys/release.asc</div><div class="line"><span class="comment"># http://mirrors.163.com/ceph</span></div><div class="line"><span class="comment"># http://mirrors.aliyun.com/ceph</span></div><div class="line"><span class="comment"># http://mirrors.ustc.edu.cn/ceph</span></div><div class="line"><span class="comment"># http://mirrors.plcloud.com/ceph</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>安装ceph-deploy</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get update &amp;&amp; sudo apt-get install ceph-deploy</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="ceph-node配置"><a href="#ceph-node配置" class="headerlink" title="ceph node配置"></a>ceph node配置</h3><ol>
+<li><p>在ceph的node节点中，安装ntp服务，并保证整个集群的时间同步并添加ssh-server</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install ntp</div><div class="line">$ sudo apt-get install openssh-server</div></pre></td></tr></table></figure>
+</li>
+<li><p>在ceph的node节点中,添加ceph的用户与组ceph-user,然后进行配置，保证该用户可以无密码sudo访问，并修改该用户的密码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ sudo useradd <span class="_">-d</span> /home/&#123;username&#125; -m &#123;username&#125;</div><div class="line">$ sudo passwd &#123;username&#125;</div><div class="line"><span class="comment"># 进行无密码sudo设置</span></div><div class="line">$ <span class="built_in">echo</span> <span class="string">"&#123;username&#125; ALL = (root) NOPASSWD:ALL"</span> | sudo tee /etc/sudoers.d/&#123;username&#125;</div><div class="line">$ sudo chmod 0440 /etc/sudoers.d/&#123;username&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>配置无密码的ssh登陆，先在admin节点生成公钥，然后copy到其他node节点。不要使用sudo或者root用户，而且不要使用密码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen</div><div class="line">$ ssh-copy-id &#123;username&#125;@node1</div></pre></td></tr></table></figure>
+</li>
+<li><p>为了方便使用ceph-deploy，推荐使用如下的ssh配置。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ sudo gedit ~/.ssh/config</div><div class="line"><span class="comment"># 然后添加</span></div><div class="line"><span class="comment"># Host node1</span></div><div class="line"><span class="comment">#    Hostname node1</span></div><div class="line"><span class="comment">#    User &#123;username&#125;</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="存储集群快速入门"><a href="#存储集群快速入门" class="headerlink" title="存储集群快速入门"></a>存储集群快速入门</h2><p>注意在部署存储集群时，要让集群到达clean+active状态。我们首先创建一个目录my-cluster，然后使用该目录存放配置文件和密钥</p>
+<blockquote>
+<p>不要使用sudo或者root用户执行ceph-deploy命令。cph-deploy会将文件输出到当前目录下，所以执行之前确保在上面提到的目录中</p>
+</blockquote>
+<h3 id="创建集群"><a href="#创建集群" class="headerlink" title="创建集群"></a>创建集群</h3><ol>
+<li><p>如果想在任何时候清除ceph配置，执行以下的命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ ceph-deploy purgedata &#123;ceph-node&#125; [&#123;ceph-node&#125;]</div><div class="line">$ ceph-deploy forgetkeys</div></pre></td></tr></table></figure>
+</li>
+<li><p>在admin节点中，执行下列命令创建一个admin节点，此时在当前目录下会出现ceph配置文件和admin的密钥环</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ceph-deploy new &#123;initial-monitor-node(s)&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>此时，如果有多块网卡，请在[global]节中添加public_network与cluster_network用来保证使用高性能网卡传输osd数据</p>
+<ol>
+<li>在当前目录执行下列命令在其他的节点中安装ceph<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ceph-deploy install &#123;ceph-node&#125;[&#123;ceph-node&#125; ...]</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<ol>
+<li><p>初始化admin节点并收集密钥环</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ceph-deploy mon create-initial</div></pre></td></tr></table></figure>
+</li>
+<li><p>在运行OSD的节点上创建osd的目录并准备激活</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ ceph-deploy osd prepare &#123;ceph-node&#125;:/path/to/directory</div><div class="line">$ ceph-deploy osd activate &#123;ceph-node&#125;:/path/to/directory</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>osd的目录不能重复挂载，所以在磁盘中需要使用类似于/dev/sda /dev/sdb的块设备文件进行指定，这样会少很多权限错误</p>
+<ol>
+<li>将admin的密钥环和配置文件copy到所有节点，保证使用时，无需在指定monitor的地址<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ceph-deploy admin &#123;admin-node&#125; &#123;ceph-node&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<ol>
+<li><p>保证对ceph.client.admin.keyring有正确的权限</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo chmod +r /etc/ceph/ceph.client.admin.keyring</div></pre></td></tr></table></figure>
+</li>
+<li><p>对于某些使用Upstart出错的机器，使用systemctl来对ceph集群进行操作</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ sudo systemctl start ceph-osd@*   </div><div class="line">$ sudo systemctl stop  ceph-osd@*</div><div class="line">$ sudo systemctl restart ceph-osd@*</div><div class="line">$ sudo systemctl status  ceph-osd@*</div><div class="line"><span class="comment">#用osd的id代替*即可</span></div></pre></td></tr></table></figure></li>
+</ol>
 
     
 
@@ -429,19 +489,19 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/05/28/ceph-config/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
+    
+        <a href="/2017/05/28/hello-world/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
     
 </nav>
 
